@@ -28,13 +28,14 @@ public String pigLatin(String sWord)
 	{
 		return sWord + "ay";
 	}
-  else if(sWord.substring(0).equals("a") || sWord.substring(0).equals("e") || sWord.substring(0).equals("i") || sWord.substring(0).equals("o") || sWord.substring(0).equals("o"))
-  {
-    
+  else if(findFirstVowel(sWord) == 0) {
+    return sWord + "way";
   }
-   
-	else
-	{
-		return "ERROR!";
-	}
+  else if(sWord.charAt(0) == 'q' && sWord.charAt(1) == 'u') {
+    return sWord.substring(2,sWord.length()) + "quay";
+  }
+  else
+  {
+    return sWord.substring(findFirstVowel(sWord), sWord.length()) + sWord.substring(0 , findFirstVowel(sWord)) + "ay";
+  }
 }
